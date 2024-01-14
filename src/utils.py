@@ -19,19 +19,17 @@ def executed_satatus(data):
     return executed_operations
 
 
-data_print = open_(DATA)
-
-print(executed_satatus(data_print))
-
-#
-#
-#
-# def date_sorted(data):
-#     for object in data:
-#         datetime_object = datetime.strptime(object['date'], '%Y-%m-%dT%H:%M:%S.%f')
-#         new_date_str = datetime_object.strftime('%d.%m.%Y')
-#         object['date'] = new_date_str
-#     return data
 
 
+def date_sorted(data):
+    return sorted(data, key=lambda dictionary: dictionary['date'], reverse=True)[:5]
+
+
+data_load = open_(DATA)
+
+executed_data = executed_satatus(data_load)
+
+sorted_data = date_sorted(executed_data)
+
+print(len(sorted_data))
 
