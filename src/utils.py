@@ -2,7 +2,7 @@ import json
 
 from config import DATA, TEST
 
-from datetime import datetime
+from datetime import datetime as date
 
 
 def open_(data):
@@ -24,6 +24,11 @@ def executed_satatus(data):
 def date_sorted(data):
     return sorted(data, key=lambda dictionary: dictionary['date'], reverse=True)[:5]
 
+def time_corrected(data):
+    for time in data:
+        wrong_time = date.strptime(time['date'], '%Y-%m-%dT%H:%M:%S.%f')
+        time['date'] = wrong_time.strftime('%d.%m.%y')
+
 
 data_load = open_(DATA)
 
@@ -31,5 +36,7 @@ executed_data = executed_satatus(data_load)
 
 sorted_data = date_sorted(executed_data)
 
-print(len(sorted_data))
+changed_data = time_corrected(sorted_data)
+
+print(sorted_data)
 
