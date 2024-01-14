@@ -11,10 +11,18 @@ def open_(data):
     return data
 
 
-# def executed_satatus(data):
-#     for operation in data:
-#         if operation['state'] == 'EXECUTED':
-#             return operation
+def executed_satatus(data):
+    executed_operations = []
+    for operation in data:
+        if operation.get('state') == 'EXECUTED':
+            executed_operations.append(operation)
+    return executed_operations
+
+
+data_print = open_(DATA)
+
+print(executed_satatus(data_print))
+
 #
 #
 #
