@@ -56,13 +56,23 @@ executed_data = executed_satatus(data_load)
 
 sorted_data = date_sorted(executed_data)
 
+#new_numbers = change_numbers(sorted_data)
+
+
+
+print(time_corrected(sorted_data))
 
 
 
 
-time_corrected(sorted_data)
-for item in sorted_data:
-    for k, v in item.items():
-        if k == 'from':
-            print(change_numbers(v))
+
+def main(sorted_data):
+    for i in sorted_data:
+        print(f"""{i['date']} {i['description']} 
+{change_numbers(i['from'])} -> {change_numbers(i['to'])}
+{i['operationAmount']['amount']} {i['operationAmount']['currency']['name']}""")
+
+
+main(sorted_data)
+
 
