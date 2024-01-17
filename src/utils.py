@@ -11,6 +11,7 @@ def open_(data):
     return data
 
 
+
 def executed_satatus(data):
     executed_operations = []
     for operation in data:
@@ -19,8 +20,11 @@ def executed_satatus(data):
     return executed_operations
 
 
+
 def date_sorted(data):
     return sorted(data, key=lambda dictionary: dictionary['date'], reverse=True)[:5]
+
+
 
 def time_corrected(data):
     for time in data:
@@ -46,33 +50,12 @@ def change_numbers(key_card_info):
 
 
 
-
-
-
-
 data_load = open_(DATA)
 
 executed_data = executed_satatus(data_load)
 
 sorted_data = date_sorted(executed_data)
 
-#new_numbers = change_numbers(sorted_data)
 
-
-
-print(time_corrected(sorted_data))
-
-
-
-
-
-def main(sorted_data):
-    for i in sorted_data:
-        print(f"""{i['date']} {i['description']} 
-{change_numbers(i['from'])} -> {change_numbers(i['to'])}
-{i['operationAmount']['amount']} {i['operationAmount']['currency']['name']}""")
-
-
-main(sorted_data)
 
 
