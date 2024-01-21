@@ -47,10 +47,6 @@ def change_numbers(key_card_info):
 
 
 
-data_load = open_(DATA)
 
-executed_data = executed_satatus(data_load)
-
-sorted_data = date_sorted(executed_data)
 
 
