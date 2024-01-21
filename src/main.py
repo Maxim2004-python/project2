@@ -1,5 +1,5 @@
 from config import DATA
-from src.utils import change_numbers, sorted_data, time_corrected, open_, executed_satatus, date_sorted
+from src.utils import change_numbers, time_corrected, open_, executed_satatus, date_sorted
 
 
 def main(sorted_data):
